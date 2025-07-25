@@ -1,0 +1,4 @@
+'''
+Variáveis, regras e etc
+
+'''
