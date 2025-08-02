@@ -64,3 +64,20 @@ formatado = ordem.format(
 print(formatado)
 
 #só lembrando que str são iteraveis
+
+
+# INTERPOLAÇÃO
+#ainda nessee papo de formatação de str, temos algumas coisas interessantes para fazer.
+# s = str
+# d ou i = int
+# f = float
+# x ou X hexadecimal.
+# vamos aos exeplos
+name = 'antonio'
+age = 19
+variavel = "%s tem %i anos"%(name, age)
+print(variavel)
+#
+#
+#
+#
