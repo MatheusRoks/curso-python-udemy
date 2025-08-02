@@ -5,7 +5,6 @@
 #e implementar sem o uso do if elif e else onde for possivel.
 
 import os
-
 def clear():
     os.system('cls' if os.name== 'nt' else 'clear')
 
