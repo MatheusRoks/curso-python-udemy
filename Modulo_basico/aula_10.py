@@ -52,3 +52,15 @@ formatado = ordem.format(b,c,a,d)
 # vamos ao print
 print(formatado)
 #x1=dois,x1=dois,x1=dois,x1=dois,x2=um,x3=123.152,x4=tres
+#ainda assim temos que ter em mente que mesmo chamando por indice não é a melhor forma
+#a melhor forma é por meio de paramentros e argumentos nomeados. vamos lla
+ordem = "x1={name_1},x1={name_1},x1={name_1},x1={name_1},x2={name_4:.2f},x3={name_3},x4={name_2}"
+formatado = ordem.format(
+    name_1=a,
+    name_2=b,
+    name_3=c,
+    name_4=d
+)
+print(formatado)
+
+#só lembrando que str são iteraveis
