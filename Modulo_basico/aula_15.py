@@ -4,9 +4,9 @@ import os
 def clear_terminal():
     os.system('cls' if os.name == 'ntr' else 'clear')
 
-number = input('digite um número inteiro: ')
 resto = 0
 while True:
+    number = input('digite um número inteiro: ')
     if number.isdigit():
         number = int(number)
         resto = number%2
@@ -18,3 +18,4 @@ while True:
             break
     else:
         print('digite apenas números inteiros')
+        clear_terminal()
