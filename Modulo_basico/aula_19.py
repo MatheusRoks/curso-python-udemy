@@ -4,7 +4,7 @@ from clear import clear_terminal
 name = ''
 while True:
     name = input("Digite seu nome: ")
-    clear_terminal
+    clear_terminal()
     for letter in name:
         print("*",letter,end='', sep="")
     print("*")
