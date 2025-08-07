@@ -1,12 +1,8 @@
 range_column = 5
 range_row = 5
 
-row = 1
-while row <=range_row:
-    column= 1
-    while column <=range_column:
-        print(f'{row} {column}|', end=" ")
-        column+=1
+for row in range(range_row):
+    for column in range(range_column):
+        print(f'{row+1} {column+1}|', end=" ")
     print('\n', 23*'_')
-    row+=1
 
