@@ -10,13 +10,23 @@ a cada vez que ele encontrar esse sinal, ele quebrará a frase.
 strip: remove espaços excedentes. se eu passar apenas strip() remove no comeco e no fim,
 caso eu passe rstrip() apenas no fim
 lstrip() apenas no inicio
+
+o join muda a forma que os itens de uma lista sãoo separados e trasnfroma tudo em
+uma str
 '''
 
 
-frase = 'Olha só que legal, posso partir ela em vários pedaços'
-lista_palavras = frase.split()
+frase_crua = 'Olha só que legal, posso partir ela em vários pedaços'
+lista_palavras = frase_crua.split()
+lista_organizada = []
 print("A nova lista", lista_palavras)
 #vamos a mais exemplos
-lista_palavras = frase.split(',')
+lista_palavras = frase_crua.split(',')
 for i, frase in enumerate(lista_palavras):
     print(lista_palavras[i].strip())
+
+for i, frase in enumerate(lista_palavras):
+    lista_organizada.append(lista_palavras[i].strip())
+
+str_join = "-".join(lista_organizada)
+print(str_join)
