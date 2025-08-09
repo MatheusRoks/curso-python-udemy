@@ -1,33 +1,52 @@
 from clear import clear_terminal
 
+def ver():
+    clear_terminal()
+    for index, name in enumerate(compras, start=1):
+        print(index, name)
+
+def parar():
+    ver()
+    return False
+
+def verification(remove):
+    try:
+        remove = int(remove)
+        remove -= 1
+        compras.pop(remove)
+    except ValueError:
+        print("Digite apenas números ao remover itens")
+
+
 compras = []
 comando = ''
-parar = False
+pare = True
 item = ''
-comandos = ['adc', 'rm', 'parar', 'ver']
-while parar is not True:
-    comando = ''
-    print('''
-    lista de opções:
-    - adc = adiciona um item a lista;
-    - rm = remover um item;
-    - parar = para o programa e mostra a lista;
-    - ver = mostra a lista;
-''')
-    comando = input('digite uma opção: ').lower()
-    if comando not in comandos:
+remove = 0
+comands = '''
+    --- MENU DE OPÇÕES ---
+    - rm: Remover um item
+    - ver: Exibir a lista
+    - parar: Sair do programa
+    ----------------------'''
+
+while pare:
+    print(comands)
+    item = input("Digite um item que deseja adicionar: ")
+    if item == 'parar':
+        pare = parar()
+    elif item == 'ver':
+        ver()
+    elif item == 'rm':
+        while remove != 'stop':
+            ver()
+            print("Caso deseje parar digite: stop")
+            remove = input('Digite o número do item que deseja remover: ').lower()
+            if remove == 'stop':
+                continue
+            verification(remove)
+
+    else:
+        compras.append(item)
         clear_terminal()
-        print("Esse comando não é valido, favor digitar novamente")
-        continue
-    match comando:
-        case 'parar':
-            for index, name in enumerate(compras):
-                print(index, name)
-            break
-        case "ver":
-            for index, name in enumerate(compras):
-                print(index, name)
-        case "adc":
-            item = input("Digite um item que deseja adicionar: ")
-            compras.append(item)
 
