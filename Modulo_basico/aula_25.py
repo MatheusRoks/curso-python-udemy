@@ -21,7 +21,6 @@ def verification(remove):
 compras = []
 comando = ''
 pare = True
-item = ''
 remove = 0
 comands = '''
     --- MENU DE OPÇÕES ---
@@ -32,12 +31,12 @@ comands = '''
 
 while pare:
     print(comands)
-    item = input("Digite um item que deseja adicionar: ")
-    if item == 'parar':
+    comando = input("Digite um item que deseja adicionar ou um comando: ")
+    if comando == 'parar':
         pare = parar()
-    elif item == 'ver':
+    elif comando == 'ver':
         ver()
-    elif item == 'rm':
+    elif comando == 'rm':
         while remove != 'stop':
             ver()
             print("Caso deseje parar digite: stop")
@@ -47,6 +46,6 @@ while pare:
             verification(remove)
 
     else:
-        compras.append(item)
+        compras.append(comando)
         clear_terminal()
 
