@@ -26,3 +26,19 @@ def numeros(a=1,b=10,c=100):
 
 numeros()
 numeros(30,60,90)
+
+#-------------------Argumentos nomeados ------------
+'''
+caso voce use os argumentos da forma que foi mostrada acima, isso é chamado de 
+argumentos posicionais, a ordem que esses argumentos são enviadas importa.
+ou seja, o primeiro valor será indicado para a, o segundo para b e etc.
+
+mas caso você não deseje que isso ocorra, você pode enviá-los da seguinte forma
+def numeros(a=1,b=10,c=100):
+    print(a,b,c)
+
+numeros(b=30,c=60,a=90)
+
+com isso, você está basicamente mudando a forma que ele será exibido. irei mostrar
+'''
+numeros(b=30,c=60,a=90)
