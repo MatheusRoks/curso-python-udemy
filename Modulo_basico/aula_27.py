@@ -30,3 +30,5 @@ for i, frase in enumerate(lista_palavras):
 
 str_join = "-".join(lista_organizada)
 print(str_join)
+
+
