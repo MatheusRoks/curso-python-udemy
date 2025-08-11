@@ -11,8 +11,8 @@ strip: remove espaços excedentes. se eu passar apenas strip() remove no comeco 
 caso eu passe rstrip() apenas no fim
 lstrip() apenas no inicio
 
-o join muda a forma que os itens de uma lista sãoo separados e trasnfroma tudo em
-uma str
+o join muda a forma que os itens de um iteravel são separados e retorna tudo em uma
+str
 '''
 
 
