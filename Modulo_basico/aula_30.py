@@ -9,24 +9,33 @@ def validar_cpf(cpf_str):
     
     if cpf_numeros == cpf_numeros[0]*11:
         return False
+    
     cpf_soma = 0
     contador = 10
+
     for i in range(0,9):
         cpf_soma += ((int(cpf_numeros[i])) * contador )
         contador-=1
+
     first_digit = (cpf_soma*10)%11
+
     first_digit = first_digit if first_digit <=9 else 0
+
     if first_digit != int(cpf_numeros[9]):
         return False
 
     #segundo dígito
     contador = 11
     cpf_soma = 0
+
     for i in range(0,10):
         cpf_soma += ((int(cpf_numeros[i])) * contador )
         contador-=1
+
     second_digit = (cpf_soma*10)%11
+
     second_digit = second_digit if second_digit <=9 else 0
+    
     if second_digit != int(cpf_numeros[10]):
         return False
     
