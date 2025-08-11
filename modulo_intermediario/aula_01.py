@@ -41,4 +41,4 @@ numeros(b=30,c=60,a=90)
 
 com isso, você está basicamente mudando a forma que ele será exibido. irei mostrar
 '''
-numeros(b=30,c=60,a=90)
+numeros(b=30,c=60,a=90) 
