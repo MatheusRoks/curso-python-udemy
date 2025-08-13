@@ -25,4 +25,19 @@ quando definimos a primeira função, ela retorna uma função interna que "lemb
 isso altera o fluxo de execução do programa, pois agora temos funções que podem ser chamadas posteriormente, mantendo o contexto dos parâmetros passados. Isso é especialmente útil em programação funcional e quando queremos criar funções dinâmicas ou personalizadas.
 
 assim, as funções que antes seriam imediatamente executadas agora podem ser chamadas quando necessário, permitindo uma maior flexibilidade e reutilização de código.
+
+vamos ver um exemplo prático de como isso pode ser útil:
+'''
+
+def cumprimentar(saudacao):
+    def cumprimentar_nome(name):
+        return f"{saudacao}, {name}!"
+    return cumprimentar_nome
+
+cumprimentar_ola = cumprimentar("Olá")
+cumprimentar_bom_dia = cumprimentar("Bom dia")
+print(cumprimentar_ola("Ana"))  # Saída: Olá, Ana!
+print(cumprimentar_bom_dia("Carlos"))  # Saída: Bom dia, Carlos!
+'''
+Nesse exemplo, a função `cumprimentar` cria funções de cumprimento personalizadas que podem ser reutilizadas com diferentes nomes. Isso demonstra como closures podem ser usadas para criar funções mais flexíveis e reutilizáveis.
 '''
