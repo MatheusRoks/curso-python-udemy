@@ -40,4 +40,10 @@ print(cumprimentar_ola("Ana"))  # Saída: Olá, Ana!
 print(cumprimentar_bom_dia("Carlos"))  # Saída: Bom dia, Carlos!
 '''
 Nesse exemplo, a função `cumprimentar` cria funções de cumprimento personalizadas que podem ser reutilizadas com diferentes nomes. Isso demonstra como closures podem ser usadas para criar funções mais flexíveis e reutilizáveis.
+
+vamos a mais exemplos
 '''
+
+nomes = ["Alice", "Bob", "Charlie"]
+for nome in nomes:
+    print(cumprimentar_ola(nome))
