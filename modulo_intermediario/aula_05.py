@@ -1,7 +1,4 @@
-import os
-
-def clear_terminal():
-    os.system('cls' if os.name == 'nt' else 'clear')
+from clear import clear_terminal
 
 def checker(number):
     try:
