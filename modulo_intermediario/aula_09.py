@@ -56,6 +56,7 @@ def run_quiz():
         input("\nAperte Enter para continuar...")
         clear_terminal()
         print('Bem-vindo ao Quiz de Python!')
+        
     clear_terminal()
     print("Quiz concluído!")
     print(f'Parabéns, sua pontuação final é: {score}')
