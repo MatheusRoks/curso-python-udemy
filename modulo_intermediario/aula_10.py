@@ -52,6 +52,7 @@ def run_quiz():
         print(f"Entrada inválida: {e}. Usando 5 perguntas por padrão.")
         quantity = 5
 
+
     input("Aperte Enter para começar...")
 
     exercice = [create_question_data() for _ in range(quantity)]
@@ -69,15 +70,17 @@ def run_quiz():
         
         while True:
             answer_input = input("\nDigite o número da resposta: ")
-            try:
+            if answer_input.isdigit():
                 answer_index = int(answer_input)
                 if 1 <= answer_index <= len(question_data['options']):
                     user_answer_value = question_data['options'][answer_index - 1]
                     break
                 else:
-                    print("Opção inválida. Por favor, digite um número da lista de opções.")
-            except ValueError:
-                print("Entrada inválida. Digite apenas números.")
+                    print("Por favor, digite um número entre 1 e 4.")
+            else:
+                print("Opção inválida. Por favor, digite um número da lista de opções.")
+                continue
+            
 
         if user_answer_value == question_data['answer']:
             print("Resposta correta!")
