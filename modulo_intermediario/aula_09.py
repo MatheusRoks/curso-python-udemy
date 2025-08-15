@@ -2,7 +2,7 @@ from clear import clear_terminal
 import random
 
 
-execice = [
+exercice = [
     {
         "question": "Qual é o resultado da expressão 2 + 3 * 4?",
         "options": ['20', '14', '26', '10'],
@@ -27,8 +27,8 @@ def run_quiz():
     clear_terminal()
     print("Bem-vindo ao Quiz de Python!")
     score = 0   
-    random.shuffle(execice)
-    for question_data in execice:
+    random.shuffle(exercice)
+    for question_data in exercice:
         print("\n" + question_data['question'])
 
         random.shuffle(question_data['options'])
