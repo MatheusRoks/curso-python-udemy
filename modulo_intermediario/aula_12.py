@@ -1,13 +1,13 @@
 
 def first_duplicate(lista):
-    numeros_vistos = set()
+    seen_numbers = set()
     for number in lista:
-        if number in numeros_vistos:
+        if number in seen_numbers:
             return f'A duplicata é {number}'
-        numeros_vistos.add(number)
+        seen_numbers.add(number)
     return "Sem duplicatas"
 
-lista_de_numeros = [
+number_list = [
     [1, 2, 3, 4,32, 5, 6, 7, 8, 9, 10],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     [1, 2, 3, 4,3, 5, 6, 7, 8, 9, 10, 1],
@@ -15,6 +15,6 @@ lista_de_numeros = [
     [1, 2,1, 3, 4, 5, 6, 7, 8, 9, 10, 11,12, 12],
 ]
 
-for i, lista in enumerate(lista_de_numeros):
-    print(f'Lista {i+1}: {lista}')
-    print(first_duplicate(lista))
+for number, nlist in enumerate(number_list):
+    print(f'Lista {number+1}: {nlist}')
+    print(first_duplicate(nlist))
