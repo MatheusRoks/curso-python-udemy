@@ -1,5 +1,5 @@
 ################ATENÇÃO################
-#Esse arquivo é um arquivo de teste, não foi criado por mim em sua completudo.
+#Esse arquivo é um arquivo de teste, não foi criado por mim em sua completude.
 # criei parte da lógica e o restante foi gerado por uma IA.
 #para ver o código original, acesse:
 #o github mini-quiz. lá estará meu codigo original e sem ia envolvida.
@@ -41,7 +41,6 @@ def generate_question(difficulty):
         question_string = random.choice([
             f"({number1} {op1} {number2}) {op2} {number3}",
             f"{number1} {op1} ({number2} {op2} {number3})",
-            f"{number1} {op1} {number2} {op2} {number3}",
         ])
     
     try:
