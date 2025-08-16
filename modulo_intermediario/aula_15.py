@@ -8,7 +8,7 @@ listas de forma rápida e que possuam uma forma de filtragem ou lógica.
 ela possui as seguintes estruturas:
 [nome] = [
             [lógica]
-            if [condição] else[outra condição]
+            if [condição] else[outra condição]{modificação}
             for [variável] in [iterável]
             if [filtro]]
 vamos ao exemplo de uma lista que multiplica numeros por 2 apenas se forem pares.
@@ -69,9 +69,9 @@ a estrutura de uma list comprehension é a seguinte:
  antes do for, veja o exemplo abaixo e dps a execução dele.
  [nome] = [
             [lógica]
-            if [condição] else[condição padrão]
+            if [condição] else[condição padrão]{essa é a modificação}
             for [variável] in [iterável]
-            if [condição]
+            if [filtro]
         ]
 
 produtos = [
