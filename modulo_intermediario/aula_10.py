@@ -70,16 +70,15 @@ def run_quiz():
         
         while True:
             answer_input = input("\nDigite o número da resposta: ")
-            if answer_input.isdigit():
+            try:
                 answer_index = int(answer_input)
                 if 1 <= answer_index <= len(question_data['options']):
                     user_answer_value = question_data['options'][answer_index - 1]
-                    break
+                    break 
                 else:
-                    print("Por favor, digite um número entre 1 e 4.")
-            else:
-                print("Opção inválida. Por favor, digite um número da lista de opções.")
-                continue
+                    print(f"Por favor, digite um número entre 1 e 4.")
+            except ValueError:
+                print("Entrada inválida. Por favor, digite apenas números.")
             
 
         if user_answer_value == question_data['answer']:
