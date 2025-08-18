@@ -39,8 +39,18 @@ def generate_question(difficulty):
         question_string = f"{number1} {op1} {number2} {op2} {number3}"
     else:  # Difficulty '3'
         question_string = random.choice([
-            f"({number1} {op1} {number2}) {op2} {number3}",
+            f"{-number1} {op1} ({number2} {op2} {number3})",
+            f"{number1} {op1} ({-number2} {op2} {number3})",
+            f"{number1} {op1} ({number2} {op2} {-number3})",
             f"{number1} {op1} ({number2} {op2} {number3})",
+            f"({number1} {op1} {number2}) {op2} {number3}",
+            f"({-number1} {op1} {number2}) {op2} {number3}",
+            f"({number1} {op1} {-number2}) {op2} {number3}",
+            f"({number1} {op1} {number2}) {op2} {-number3}",
+            f"{-number1} {op1} {number2} {op2} {number3}",
+            f"{number1} {op1} {-number2} {op2} {number3}",
+            f"{number1} {op1} {number2} {op2} {-number3}",
+ 
         ])
     
     try:
