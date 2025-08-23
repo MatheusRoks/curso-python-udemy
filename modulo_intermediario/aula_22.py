@@ -27,9 +27,28 @@ tambem dentro da sacola maior, certo? então da pra dizer que os doces pertecem 
 maior.
 mas a sacola maior pertence as sacolas menores? não. 
 é a mesma coisa, de dentro do modulo teste_01 não consigo, por padrão, usar o meu clear.
+
+para conseguir importar modulos acima, será necessário trabalhar com o syspath, com os caminhos.
+
+
+lembrando que: os modulos são singleton, assim que você importa ele, o python
+guarda ele na memória e sempre que ele for importado novamente (naquele código que está rodando) ele apenas pega da memória.
+não é possivel importar o mesmo módulo 1000 vezes no mesmo arquivo por causa disso
+por eficiencia.
+
+
+MAS podemos dar um reload, caso haja uma alteração do módulo que você importou
+e precise dessa alteração.
+
+você precisa, para fazer isso:
+import importlib
+
+e quando quiser recarregar o modulo
+importlib.reload(modulo)
 '''
     
 from teste_01 import say_hi
+
 
 
 
