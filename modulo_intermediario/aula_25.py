@@ -6,6 +6,7 @@ def crate_function(func):
     return intern
 
 
+@crate_function
 def invert_string(string):
     return string[::-1]
 
@@ -15,6 +16,5 @@ def is_string(param):
         raise TypeError('Param deve ser uma str')
 
 
-invert_string_check = crate_function(invert_string)
-invert = invert_string_check('123')
+invert = invert_string('123')
 print(invert)
