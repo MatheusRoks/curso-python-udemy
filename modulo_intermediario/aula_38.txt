@@ -1,0 +1,16 @@
+Estou criando dessa forma basicamente para facilitar minhas anotações.
+
+vamos comecar pela criação de uma venv
+
+para criar uma venv, basta rodar o seguinte comando:
+python -m venv nome_da_venv
+ou
+python3 -m venv nome_da_venv
+ou
+py -m venv nome_da_venv
+
+para ativar a venv, basta rodar o seguinte comando:
+no windows:
+nome_da_venv\Scripts\activate
+
+-------------------------------------
