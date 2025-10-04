@@ -1,0 +1,1 @@
+Success: Teste de log (LogFileMixin)
