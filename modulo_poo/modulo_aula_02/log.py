@@ -16,7 +16,7 @@ class Log:
 class LogFileMixin(Log):
     def _log(self, msg):
         msg_formatada = f'{msg} ({self.__class__.__name__})'
-        with open(LOG_BASE, 'w') as arquivo:
+        with open(LOG_BASE, 'a') as arquivo:
             arquivo.write(msg_formatada)
             arquivo.write('\n')
 

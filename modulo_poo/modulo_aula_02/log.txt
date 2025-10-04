@@ -1,1 +1,3 @@
 Success: Teste de log (LogFileMixin)
+Error: Teste de log (LogFileMixin)
+Success: Teste de log (LogFileMixin)
