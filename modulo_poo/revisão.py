@@ -107,18 +107,20 @@ classe Pessoa:
     def __init__(self, nome, idade):
         self.nome = nome
         self.idade = idade
-        self.ano_atual = Pessoa.ano_atual 
+        self.ano_atual = Pessoa.ano_atual
 
         def get_ano_nascimento(self):
             return Pessoa.ano_atual - self.idade
 
-    isso impossibilita que um usuário altere o ano atual fora do contexto da classe. 
+    isso impossibilita que um usuário altere o ano atual fora do contexto da classe.
 
     conversão dos dados contidos na classe para json:
-    
+
     Para isso, além do esquema clássico do json que temos no python, para salvar os dados jogamos dentro de uma variável um exemplo.__dict__ que converte os dados da classe em um dicionário, que é o formato aceito pelo json.
-            
+
 '''
+
+# isso foi pego do código da aula de python do professor Luiz Otávio Miranda
 # Métodos de classe + factories (fábricas)
 # São métodos onde "self" será "cls", ou seja,
 # ao invés de receber a instância no primeiro
@@ -156,7 +158,7 @@ print(p4.nome, p4.idade)
 # Pessoa.metodo_de_classe()
 
 '''
-property 
+property
 a property é um decorator que transforma um método (dentro da classe) em um
 atributo (somente leitura) para o código cliente.
 vamos ao exemplo
@@ -259,3 +261,177 @@ mecanico1 = Mecanico('Carlos')
 mecanico1.ferramenta = ferramenta1
 print(
     f' O mecânico {mecanico1.nome} está {mecanico1.ferramenta.usar_ferramenta()}.')
+
+
+class Carrinho:
+    def __init__(self):
+        self._produtos = []
+
+    def total(self):
+        return sum([produto.preco for produto in self._produtos])
+
+    def adicionar_produto(self, produto):
+        self._produtos.append(produto)
+
+    def listar_produtos(self):
+        for produto in self._produtos:
+            print(f'Produto: {produto.nome} - Preço: R$ {produto.preco:.2f}')
+
+
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+
+
+carrinho = Carrinho()
+prod1, prod2 = Produto('Caneta', 2.5), Produto('Caderno', 15.0)
+carrinho.adicionar_produto(prod1)
+carrinho.adicionar_produto(prod2)
+carrinho.listar_produtos()
+print(f'Total do carrinho: R$ {carrinho.total():.2f}')
+
+'''
+a composição é um tipo de associação onde o objeto composto é responsável pela criação e destruição dos objetos componentes. Ou seja, se o objeto composto for destruído, os objetos componentes também serão destruídos.
+'''
+
+
+class Cliente:
+    def __init__(self, nome):
+        self.nome = nome
+        self.endereco = []
+
+    def adicionar_endereco(self, rua, numero, cidade):
+        self.endereco.append(Endereco(rua, numero, cidade))
+
+    def mostrar_endereco(self):
+        for endereco in self.endereco:
+            f'{endereco.rua}, {endereco.numero} - {endereco.cidade}'
+
+    def __del__(self):
+        print('apagando', self.nome)
+
+
+class Endereco:
+    def __init__(self, rua, numero, cidade):
+        self.rua = rua
+        self.numero = numero
+        self.cidade = cidade
+
+    def __del__(self):
+        print('apagando', self.rua, self.numero, self.cidade)
+
+
+cliente1 = Cliente('Ana Silva')
+cliente1.adicionar_endereco('Rua A', 123, 'São Paulo')
+print(
+    f'Endereço de {cliente1.nome}: {cliente1.mostrar_endereco()}')
+
+
+print('Encerrando o programa...')
+
+'''a sessão de código abaixo foi retirada do curso de python do professor Luiz Otávio Miranda'''
+# super() e a sobreposição de membros - Python Orientado a Objetos
+# Classe principal (Pessoa)
+#   -> super class, base class, parent class
+# Classes filhas (Cliente)
+#   -> sub class, child class, derived class
+# class MinhaString(str):
+#     def upper(self):
+#         print('CHAMOU UPPER')
+#         retorno = super(MinhaString, self).upper()
+#         print('DEPOIS DO UPPER')
+#         return retorno
+
+
+# string = MinhaString('Luiz')
+# print(string.upper())
+
+class A(object):
+    atributo_a = 'valor a'
+
+    def __init__(self, atributo):
+        self.atributo = atributo
+
+    def metodo(self):
+        print('A')
+
+
+class B(A):
+    atributo_b = 'valor b'
+
+    def __init__(self, atributo, outra_coisa):
+        super().__init__(atributo)
+        self.outra_coisa = outra_coisa
+
+    def metodo(self):
+        print('B')
+
+
+class C(B):
+    atributo_c = 'valor c'
+
+    def __init__(self, *args, **kwargs):
+        # print('EI, burlei o sistema.')
+        super().__init__(*args, **kwargs)
+
+    def metodo(self):
+        # super().metodo()  # B
+        # super(B, self).metodo()  # A
+        # super(A, self).metodo()  # object
+        A.metodo(self)
+        B.metodo(self)
+        print('C')
+
+
+# print(C.mro())
+# print(B.mro())
+# print(A.mro())
+c = C('Atributo', 'Qualquer')
+# print(c.atributo)
+# print(c.outra_coisa)
+c.metodo()
+# print(c.atributo_a)
+# print(c.atributo_b)
+# print(c.atributo_c)
+# c.metodo()
+
+
+def adiciona_rep(cls):
+    def meu_rep(self):
+        class_name = self.__class__.__name__
+        class_dict = self.__dict__
+        class_rep = f'{class_name}{class_dict}'
+        return class_rep
+    cls.__repr__ = meu_rep
+    return cls
+
+
+@adiciona_rep
+class Teste:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+
+t = Teste(10, 20)
+print(t)
+
+
+class Multiplacar:
+    def __init__(self, valor):
+        self.valor = valor
+
+    def __call__(self, func):
+        def interna(*args, **kwargs):
+            resultado = func(*args, **kwargs)
+            return resultado * self.valor
+        return interna
+
+
+@Multiplacar(10)
+def soma(x, y):
+    return x + y
+
+
+print(soma(5, 5))  # Output: 100
