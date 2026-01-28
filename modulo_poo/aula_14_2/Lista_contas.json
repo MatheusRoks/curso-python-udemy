@@ -1,0 +1,10 @@
+[
+    {
+        "mensagem": "Erro: Teste de registro",
+        "classe": "RegistroJsonMixin"
+    },
+    {
+        "mensagem": "Sucesso: Teste de registro",
+        "classe": "RegistroJsonMixin"
+    }
+]

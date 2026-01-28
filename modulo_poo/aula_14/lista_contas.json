@@ -1,0 +1,32 @@
+[
+  {
+    "tipo": "Cliente",
+    "nome": "Thiago",
+    "idade": 30,
+    "cpf": "111.222.333-44",
+    "contas": [
+      {
+        "tipo": "ContaCorrente",
+        "agencia": 1111,
+        "numero": 5050,
+        "saldo": -400,
+        "limite": 1000
+      }
+    ]
+  },
+  {
+    "tipo": "Cliente",
+    "nome": "Maria",
+    "idade": 25,
+    "cpf": "555.666.777-88",
+    "contas": [
+      {
+        "tipo": "ContaPoupanca",
+        "agencia": 2222,
+        "numero": 8080,
+        "saldo": 200,
+        "limite": null
+      }
+    ]
+  }
+]

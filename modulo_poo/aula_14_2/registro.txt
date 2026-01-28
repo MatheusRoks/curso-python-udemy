@@ -1,0 +1,2 @@
+Erro: Teste de registro (RegistroArquivoMixin)
+Sucesso: Teste de registro (RegistroArquivoMixin)
