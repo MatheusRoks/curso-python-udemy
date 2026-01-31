@@ -10,10 +10,6 @@ class Banco:
         self._contas = []
         self._agencias = set()
 
-    @property
-    def agencias(self):
-        return self._agencias
-
     def adicionar_cliente(self, cliente: Cliente):
         self._clientes.append(cliente)
 
@@ -32,13 +28,67 @@ class Banco:
     def checar_conta(self, conta: ContaCorrente | ContaPoupanca) -> bool:
         return conta in self._contas
 
-    def autenticar(self, cliente: Cliente, conta: ContaCorrente | ContaPoupanca) -> bool:
-        agencia_valida = self.checar_agencia(conta.agencias)
-        cliente_valido = self.checar_cliente(cliente)
-        conta_valida = self.checar_conta(conta)
-        if agencia_valida and cliente_valido and conta_valida:
-            return True
-        return False
+    def autenticar(self, cliente, conta):
+        return (
+            self.checar_agencia(conta.agencia)
+            and self.checar_cliente(cliente)
+            and conta in cliente._contas
+            and self.checar_conta(conta)
+        )
 
     def salvar(self):
         self._registro.salvar_banco(self._clientes)
+
+    def realizar_saque(self, cliente, conta, valor):
+
+        if self.autenticar(cliente, conta):
+            if conta.saque(valor):
+                self.salvar()
+                return True
+        return False
+
+    def realizar_deposito(self, cliente, conta, valor):
+
+        if self.autenticar(cliente, conta):
+            if conta.depositar(valor):
+                self.salvar()
+                return True
+        return False
+
+    def carregar(self):
+        dados = self._registro.carregar_banco()
+        self._clientes.clear()
+        self._contas.clear()
+        self._agencias.clear()
+
+        for cliente_dict in dados:
+            cliente = Cliente(
+                cliente_dict['nome'],
+                cliente_dict['idade'],
+                cliente_dict['cpf']
+            )
+            self.adicionar_cliente(cliente)
+
+            for conta_dict in cliente_dict['contas']:
+                conta = self._criar_conta_por_dict(conta_dict)
+                self.adicionar_conta(conta)
+                cliente.adicionar_conta(conta)
+                self.adicionar_agencia(conta.agencia)
+
+    def _criar_conta_por_dict(self, dados):
+        if dados['Tipo'] == 'ContaCorrente':
+            return ContaCorrente(
+                dados['Agência'],
+                dados['Número'],
+                dados['Saldo'],
+                dados['Limite']
+            )
+
+        if dados['Tipo'] == 'ContaPoupanca':
+            return ContaPoupanca(
+                dados['Agência'],
+                dados['Número'],
+                dados['Saldo']
+            )
+
+        raise ValueError('Tipo de conta inválido')

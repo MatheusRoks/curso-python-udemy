@@ -14,24 +14,23 @@ class Registro(ABC):
         pass
 
     def registrar_erro(self, msg):
-        return self._registrar(f'Erro: {msg}')
+        self._registrar(f'Erro: {msg}')
 
     def registrar_sucesso(self, msg):
-        return self._registrar(f'Sucesso: {msg}')
+        self._registrar(f'Sucesso: {msg}')
 
     def registrar_saque(self, msg):
-        return self._registrar(f'Saque: {msg}')
+        self._registrar(f'Saque: {msg}')
 
     def registrar_deposito(self, msg):
-        return self._registrar(f'Deposito: {msg}')
+        self._registrar(f'Deposito: {msg}')
 
 
 class RegistroArquivoMixin(Registro):
     def _registrar(self, msg):
         msg_formatada = f'{msg} ({self.__class__.__name__})'
-        with open(LOG_BASE, 'a', encoding="utf-8") as arquivo:
-            arquivo.write(msg_formatada)
-            arquivo.write('\n')
+        with open(LOG_BASE, 'a', encoding='utf-8') as arquivo:
+            arquivo.write(msg_formatada + '\n')
 
 
 class RegistroJson:

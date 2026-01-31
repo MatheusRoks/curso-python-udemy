@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from registro import RegistroArquivoMixin
 
 
-class Conta(ABC, RegistroArquivoMixin):
+class Conta(RegistroArquivoMixin):
     def __init__(self, agencia: int, numero: int, saldo: float = 0):
         self._agencia = agencia
         self._numero = numero
@@ -12,7 +12,7 @@ class Conta(ABC, RegistroArquivoMixin):
     def saque(self, valor: float) -> bool:
         pass
 
-    def depositar(self, valor: float, saldo: float) -> bool:
+    def depositar(self, valor: float) -> bool:
         if valor <= 0:
             self.registrar_erro(f'Depósito de valor inválido: {valor}.')
             return False
@@ -22,6 +22,10 @@ class Conta(ABC, RegistroArquivoMixin):
 
     def ver_saldo(self) -> float:
         return self._saldo
+
+    @property
+    def agencia(self):
+        return self._agencia
 
     def to_dict(self) -> dict:
         return {

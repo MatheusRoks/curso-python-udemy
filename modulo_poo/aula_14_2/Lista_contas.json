@@ -1,10 +1,23 @@
 [
-    {
-        "mensagem": "Erro: Teste de registro",
-        "classe": "RegistroJsonMixin"
-    },
-    {
-        "mensagem": "Sucesso: Teste de registro",
-        "classe": "RegistroJsonMixin"
-    }
+  {
+    "nome": "João",
+    "idade": 30,
+    "cpf": "12345678900",
+    "contas": [
+      {
+        "Tipo": "ContaCorrente",
+        "Agência": 1,
+        "Número": 1001,
+        "Saldo": 100,
+        "Limite": 1000
+      },
+      {
+        "Tipo": "ContaPoupanca",
+        "Agência": 1,
+        "Número": 2001,
+        "Saldo": 400,
+        "Limite": null
+      }
+    ]
+  }
 ]

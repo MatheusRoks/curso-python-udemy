@@ -1,2 +1,3 @@
-Erro: Teste de registro (RegistroArquivoMixin)
-Sucesso: Teste de registro (RegistroArquivoMixin)
+Deposito: Depósito de 300 realizado com sucesso. (ContaCorrente)
+Saque: Saque de 200 realizado com sucesso. (ContaCorrente)
+Saque: Saque de 100 realizado com sucesso. (ContaPoupanca)

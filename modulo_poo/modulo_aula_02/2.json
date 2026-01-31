@@ -1,0 +1,37 @@
+{
+    "workbench.startupEditor": "none",
+    "extensions.ignoreRecommendations": true,
+    "explorer.compactFolders": false,
+    "editor.rulers": [80,120],
+    "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editorAssociations": {
+        "*.png":"default"
+    },
+    "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true
+    },
+    "python.defaultInterpreterPath": "python",
+    "editor.fontSize": 20,
+    "code-runner.ignoreSelection": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.executorMap": {
+        "python": "cls ; python -u",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "javascript": "node",
+        "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\""
+        },
+        "editor.wordWrap": "on",
+        "explorer.confirmDelete": false,
+        "explorer.confirmDragAndDrop": false,
+        "github.copilot.enable": {
+            "*": true,
+            "plaintext": true,
+            "markdown": false,
+            "scminput": false
+        },
+        "editor.defaultFormatter": "ms-python.autopep8"
+    }
+
